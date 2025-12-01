@@ -5,6 +5,7 @@
     import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
     import VideoPlayer from '$lib/components/VideoPlayer.svelte';
     import IntroModal from "$lib/components/IntroModal.svelte";
+    import videoURL from '$lib/data/earthquake_rhythm.mp4';
     
     export let data;
     let globeRef;
@@ -226,7 +227,7 @@
 
     {#if showVideoModal}
         <VideoPlayer 
-            videoSrc="src/lib/data/earthquake_rhythm.mp4" 
+            videoSrc={videoURL}
             onClose={toggleVideoModal} 
         />
     {/if}
