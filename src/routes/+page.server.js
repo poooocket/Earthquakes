@@ -1,5 +1,5 @@
-import pbData from '$lib/data/plate_boundaries.json?url';
-import faultsData from '$lib/data/gem_active_faults_harmonized.geojson?url';
+import pbDataUrl from '$lib/data/plate_boundaries.json?url';
+import faultsDataUrl from '$lib/data/gem_active_faults_harmonized.geojson?url';
 
 export async function load({ fetch }) {
 
@@ -36,6 +36,21 @@ export async function load({ fetch }) {
     // const gafPath = path.resolve('src/lib/data/gem_active_faults_harmonized.geojson');
     // const faults = JSON.parse(fs.readFileSync(gafPath));
 
+    // 2. 🚨 关键修改：通过 fetch API 获取本地文件内容 🚨
+    const [pbRes, faultsRes] = await Promise.all([
+        fetch(pbDataUrl),
+        fetch(faultsDataUrl)
+    ]);
+    
+    // 检查响应是否成功
+    if (!pbRes.ok || !faultsRes.ok) {
+        // 在这里抛出错误有助于调试
+        console.error("Failed to fetch local assets (PB or Faults)"); 
+        throw new Error("Failed to load map data assets."); 
+    }
+
+    const pbData = await pbRes.json();
+    const faultsData = await faultsRes.json();
     return {
         earthquakes,
         pb: pbData.features,
