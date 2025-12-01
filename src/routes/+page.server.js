@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import pbData from '$lib/data/plate_boundaries.json?url';
+import faultsData from '$lib/data/gem_active_faults_harmonized.geojson?url';
 
 export async function load({ fetch }) {
 
@@ -28,17 +28,17 @@ export async function load({ fetch }) {
     });
 
 
-    // 板块边界
-    const pbPath = path.resolve('src/lib/data/plate_boundaries.json');
-    const pb = JSON.parse(fs.readFileSync(pbPath));
+    // // 板块边界
+    // const pbPath = path.resolve('src/lib/data/plate_boundaries.json');
+    // const pb = JSON.parse(fs.readFileSync(pbPath));
 
-    // 全球断层
-    const gafPath = path.resolve('src/lib/data/gem_active_faults_harmonized.geojson');
-    const faults = JSON.parse(fs.readFileSync(gafPath));
+    // // 全球断层
+    // const gafPath = path.resolve('src/lib/data/gem_active_faults_harmonized.geojson');
+    // const faults = JSON.parse(fs.readFileSync(gafPath));
 
     return {
         earthquakes,
-        pb: pb.features,
-        faults: faults.features,
+        pb: pbData.features,
+        faults: faultsData.features,
     };
 }
