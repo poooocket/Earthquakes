@@ -2,7 +2,7 @@
 
 地球脉动是一个三维地震可视化系统，通过球体场景动态呈现地震事件、板块边界与俯冲带结构。将震级、深度与时间序列转化为易读的视觉语言，让地震的节奏、聚集性，以及它们与地球构造之间的关系被“看到”。
 
-####数据来源：
-地震事件： USGS Earthquake Catalog
-活动断层： GEM Global Active Faults
-俯冲带与板块边界： PB2002_boundaries
+#### 数据来源：
+地震事件： [USGS Earthquake Catalog](https://earthquake.usgs.gov/earthquakes/search/)  
+活动断层： [GEM Global Active Faults](https://github.com/GEMScienceTools/gem-global-active-faults)  
+俯冲带与板块边界： [PB2002_boundaries](https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/PB2002_boundaries.json)
