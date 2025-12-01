@@ -28,14 +28,6 @@ export async function load({ fetch }) {
     });
 
 
-    // // 板块边界
-    // const pbPath = path.resolve('src/lib/data/plate_boundaries.json');
-    // const pb = JSON.parse(fs.readFileSync(pbPath));
-
-    // // 全球断层
-    // const gafPath = path.resolve('src/lib/data/gem_active_faults_harmonized.geojson');
-    // const faults = JSON.parse(fs.readFileSync(gafPath));
-
     // 2. 🚨 关键修改：通过 fetch API 获取本地文件内容 🚨
     const [pbRes, faultsRes] = await Promise.all([
         fetch(pbDataUrl),
