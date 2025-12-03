@@ -282,18 +282,13 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 20; /* 必须高于 sidebar (z-index: 10) */
+        z-index: 20; 
         display: flex;
         align-items: center;
         padding: 48px 8px;
-        gap: 12px; /* 按钮和标题之间的间距 */
-        
-        /* 确保文字颜色跟随主题 */
+        gap: 8px;
         color: var(--sidebar-color);
-        
-        /* 可选：为了防止文字在地图复杂背景上看不清，可以加一点文字阴影 */
-        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        pointer-events: none; /* 让鼠标事件穿透空白区域，直达地图 */
+        pointer-events: none; 
     }
 
     /* 恢复标题和按钮的点击事件 */
@@ -305,6 +300,7 @@
     .floating-header h2 {
         margin: 0;
         font-size: 24px;
+        font-weight: normal;
         cursor: pointer;
         user-select: none;
         transition: opacity 0.3s;
@@ -374,19 +370,7 @@
         margin-top: 48px;
     }
 
-    .sidebar h2 {
-        margin: 0;
-        font-size: 24px;
-    }
 
-    .sidebar h2.clickable-title {
-        cursor: pointer;
-        user-select: none;
-    }
-
-    .sidebar h2.clickable-title:hover {
-        opacity: 0.7;
-    }
 
     .sidebar label {
         display: flex;
