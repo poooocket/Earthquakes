@@ -61,7 +61,7 @@
     // 动态生成可选国家列表
     const countries = Array.from(new Set(
         data.earthquakes.map(q => {
-            const parts = q.place.split(",").map(s => s.trim());
+            const parts = (q.place ?? "").split(",").map(s => s.trim());
             return parts[parts.length-1];
         })
     )).sort();
@@ -80,7 +80,7 @@
 
         // 国家过滤
         if (countryFilter !== "all") {
-            const parts = q.place.split(",").map(s => s.trim());
+            const parts = (q.place ?? "").split(",").map(s => s.trim());
             const country = parts[parts.length-1];
             if (country !== countryFilter) return false;
         }
